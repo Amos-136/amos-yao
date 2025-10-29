@@ -7,8 +7,20 @@ const Hero = () => {
     <section className="min-h-screen gradient-hero flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Profile photo */}
+          <div className="flex justify-center lg:justify-start animate-fade-in-left">
+            <div className="relative">
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+              <img 
+                src={profilePhoto}
+                alt="Yao Kouassi Amos"
+                className="relative rounded-full w-72 h-72 sm:w-96 sm:h-96 object-cover border-4 border-primary/30 glow-blue-strong animate-float"
+              />
+            </div>
+          </div>
+
           {/* Text content */}
-          <div className="space-y-6 animate-fade-in-left">
+          <div className="space-y-6 animate-fade-in-right">
             <div className="space-y-2">
               <p className="text-primary text-sm font-semibold tracking-wider uppercase">
                 Étudiant en Cybersécurité 🇨🇮
@@ -76,18 +88,6 @@ const Hero = () => {
               >
                 <Instagram className="h-5 w-5" />
               </a>
-            </div>
-          </div>
-
-          {/* Profile photo */}
-          <div className="flex justify-center lg:justify-end animate-fade-in-right">
-            <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
-              <img 
-                src={profilePhoto}
-                alt="Yao Kouassi Amos"
-                className="relative rounded-full w-72 h-72 sm:w-96 sm:h-96 object-cover border-4 border-primary/30 glow-blue-strong animate-float"
-              />
             </div>
           </div>
         </div>
