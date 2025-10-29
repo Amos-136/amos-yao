@@ -1,6 +1,6 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Mail, Phone, MapPin, Github, Linkedin, Facebook, Instagram } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, Facebook, Instagram, MessageCircle } from "lucide-react";
 
 const contactInfo = [
   {
@@ -44,6 +44,11 @@ const socialLinks = [
     name: "Instagram",
     href: "https://www.instagram.com/invites/contact/?utm_source=ig_contact_invite&utm_medium=copy_link&utm_content=rbtb6k3",
   },
+  {
+    icon: MessageCircle,
+    name: "WhatsApp",
+    href: "https://wa.me/2250150898203",
+  },
 ];
 
 const Contact = () => {
@@ -55,8 +60,12 @@ const Contact = () => {
             Restons <span className="text-gradient">connectés</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            N'hésitez pas à me contacter pour toute opportunité de collaboration ou simplement pour échanger.
+            Entreprises et recruteurs : je suis disponible pour des opportunités professionnelles en cybersécurité et développement web.
           </p>
+          <div className="mt-4 inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
+            <span className="animate-pulse">🟢</span>
+            Disponible pour opportunités professionnelles
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -117,7 +126,7 @@ const Contact = () => {
         </div>
 
         {/* CTA */}
-        <div className="mt-12 text-center animate-fade-in">
+        <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center animate-fade-in">
           <Button 
             size="lg"
             className="bg-primary hover:bg-primary/90 text-primary-foreground glow-blue transition-all hover:glow-blue-strong"
@@ -125,6 +134,15 @@ const Contact = () => {
           >
             <Mail className="mr-2 h-5 w-5" />
             Envoyez-moi un message
+          </Button>
+          <Button 
+            size="lg"
+            variant="outline"
+            className="border-primary/50 hover:bg-primary/10"
+            onClick={() => window.open('https://wa.me/2250150898203', '_blank')}
+          >
+            <MessageCircle className="mr-2 h-5 w-5" />
+            WhatsApp
           </Button>
         </div>
       </div>

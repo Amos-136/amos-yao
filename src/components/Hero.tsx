@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Github, Linkedin, Facebook, Instagram, Mail } from "lucide-react";
+import { Github, Linkedin, Facebook, Instagram, Mail, Download } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
 
 const Hero = () => {
@@ -13,7 +13,7 @@ const Hero = () => {
               <div className="absolute inset-0 bg-primary/20 rounded-lg blur-3xl animate-pulse"></div>
               <img 
                 src={profilePhoto}
-                alt="Yao Kouassi Amos"
+                alt="Yao Kouassi Amos - Étudiant en cybersécurité et développeur web spécialisé en Python, React et sécurité informatique basé à Abidjan, Côte d'Ivoire"
                 className="relative rounded-lg w-64 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[32rem] object-cover border-4 border-primary/30 glow-blue-strong animate-float"
               />
             </div>
@@ -35,7 +35,7 @@ const Hero = () => {
               Je mets mes compétences au service de projets innovants qui unissent technologie et créativité.
             </p>
             
-            <div className="flex items-center gap-4 pt-4">
+            <div className="flex flex-wrap items-center gap-4 pt-4">
               <Button 
                 size="lg" 
                 className="bg-primary hover:bg-primary/90 text-primary-foreground glow-blue transition-all hover:glow-blue-strong"
@@ -52,6 +52,15 @@ const Hero = () => {
               >
                 Voir mes projets
               </Button>
+              <Button 
+                size="lg" 
+                variant="secondary"
+                className="bg-secondary hover:bg-secondary/80"
+                onClick={() => window.open('#', '_blank')}
+              >
+                <Download className="mr-2 h-4 w-4" />
+                Télécharger mon CV
+              </Button>
             </div>
 
             {/* Social links */}
@@ -61,6 +70,7 @@ const Hero = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-secondary hover:bg-primary transition-all hover:glow-blue"
+                aria-label="Profil GitHub de Yao Kouassi Amos"
               >
                 <Github className="h-5 w-5" />
               </a>
@@ -69,6 +79,7 @@ const Hero = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-secondary hover:bg-primary transition-all hover:glow-blue"
+                aria-label="Profil LinkedIn de Yao Kouassi Amos"
               >
                 <Linkedin className="h-5 w-5" />
               </a>
@@ -77,6 +88,7 @@ const Hero = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-secondary hover:bg-primary transition-all hover:glow-blue"
+                aria-label="Profil Facebook de Yao Kouassi Amos"
               >
                 <Facebook className="h-5 w-5" />
               </a>
@@ -85,6 +97,7 @@ const Hero = () => {
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-secondary hover:bg-primary transition-all hover:glow-blue"
+                aria-label="Profil Instagram de Yao Kouassi Amos"
               >
                 <Instagram className="h-5 w-5" />
               </a>
