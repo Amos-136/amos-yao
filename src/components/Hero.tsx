@@ -10,11 +10,11 @@ const Hero = () => {
           {/* Profile photo */}
           <div className="flex justify-center lg:justify-start animate-fade-in-left">
             <div className="relative">
-              <div className="absolute inset-0 bg-primary/20 rounded-full blur-3xl animate-pulse"></div>
+              <div className="absolute inset-0 bg-primary/20 rounded-lg blur-3xl animate-pulse"></div>
               <img 
                 src={profilePhoto}
                 alt="Yao Kouassi Amos"
-                className="relative rounded-full w-72 h-72 sm:w-96 sm:h-96 object-cover border-4 border-primary/30 glow-blue-strong animate-float"
+                className="relative rounded-lg w-64 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[32rem] object-cover border-4 border-primary/30 glow-blue-strong animate-float"
               />
             </div>
           </div>
