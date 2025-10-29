@@ -52,6 +52,10 @@ const About = () => {
           <Card className="p-8 gradient-card border-border animate-scale-in">
             <h3 className="text-2xl font-semibold mb-4 text-primary">Mon parcours</h3>
             <p className="text-muted-foreground leading-relaxed mb-6">
+              Technicien en informatique rigoureux et polyvalent, passionné par la cybersécurité et le développement. 
+              Je conçois des solutions fiables, sécurisées et innovantes pour répondre aux besoins techniques des entreprises.
+            </p>
+            <p className="text-muted-foreground leading-relaxed mb-6">
               Dynamique, motivé, engagé et polyvalent, je mets à profit mes compétences techniques 
               pour assurer le bon fonctionnement des systèmes informatiques. Mon expérience me permet 
               de diagnostiquer et résoudre rapidement les problèmes, d'optimiser les performances des 

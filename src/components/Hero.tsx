@@ -31,8 +31,8 @@ const Hero = () => {
             </div>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Passionné par la cybersécurité, le développement web et la création digitale. 
-              Je mets mes compétences au service de projets innovants qui unissent technologie et créativité.
+              Technicien en informatique rigoureux et polyvalent, passionné par la cybersécurité et le développement. 
+              Je conçois des solutions fiables, sécurisées et innovantes pour répondre aux besoins techniques des entreprises.
             </p>
             
             <div className="flex flex-wrap items-center gap-4 pt-4">
