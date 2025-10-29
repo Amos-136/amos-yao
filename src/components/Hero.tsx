@@ -6,7 +6,7 @@ const Hero = () => {
   return (
     <section className="min-h-screen gradient-hero flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Profile photo */}
           <div className="flex justify-center lg:justify-start animate-fade-in-left">
             <div className="relative">
