@@ -51,17 +51,44 @@ const About = () => {
           {/* Bio section */}
           <Card className="p-8 gradient-card border-border animate-scale-in">
             <h3 className="text-2xl font-semibold mb-4 text-primary">Mon parcours</h3>
-            <p className="text-muted-foreground leading-relaxed mb-4">
+            <p className="text-muted-foreground leading-relaxed mb-6">
               Dynamique, motivé, engagé et polyvalent, je mets à profit mes compétences techniques 
               pour assurer le bon fonctionnement des systèmes informatiques. Mon expérience me permet 
               de diagnostiquer et résoudre rapidement les problèmes, d'optimiser les performances des 
               équipements, et d'apporter des solutions innovantes pour améliorer l'efficacité.
             </p>
-            <p className="text-muted-foreground leading-relaxed">
+            <p className="text-muted-foreground leading-relaxed mb-6">
               Actuellement étudiant en cybersécurité à <span className="text-primary font-semibold">NYS Africa</span>, 
               je combine formation technique et expérience pratique en tant que technicien informatique chez 
               <span className="text-primary font-semibold"> Atlantique Services Dépannage</span>.
             </p>
+            
+            <div className="space-y-4">
+              <h4 className="text-lg font-semibold text-foreground">Formation</h4>
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <span className="text-primary mt-1">🎓</span>
+                  <div>
+                    <p className="font-semibold text-foreground">NYS Africa</p>
+                    <p className="text-sm text-muted-foreground">Certificat en sécurité informatique</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-primary mt-1">🎓</span>
+                  <div>
+                    <p className="font-semibold text-foreground">CELIA Treichville</p>
+                    <p className="text-sm text-muted-foreground">3e Année Brevet de technicien en électronique et informatique appliquée</p>
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-primary mt-1">🎓</span>
+                  <div>
+                    <p className="font-semibold text-foreground">Lycée moderne BAD d'Ayamé</p>
+                    <p className="text-sm text-muted-foreground">BEPC</p>
+                  </div>
+                </div>
+              </div>
+            </div>
           </Card>
 
           {/* Expertise grid */}
