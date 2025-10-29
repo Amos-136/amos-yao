@@ -1,42 +1,32 @@
 import { Card } from "@/components/ui/card";
 import { Code, Shield, Palette, Bot, Globe, Sparkles } from "lucide-react";
-
-const expertiseAreas = [
-  {
-    icon: Shield,
-    title: "Cybersécurité",
-    description: "Audit, tests de pénétration, réseaux avancés, techniques d'évasion et pivoting",
-  },
-  {
-    icon: Code,
-    title: "Développement Python",
-    description: "Création de bots, outils d'analyse, API et interfaces graphiques",
-  },
-  {
-    icon: Globe,
-    title: "Création web",
-    description: "Sites vitrine, SaaS, hébergement, SSL, Supabase et Firebase Studio",
-  },
-  {
-    icon: Bot,
-    title: "Automatisation",
-    description: "Bot Telegram, gestion de CV et offres d'emploi automatisées",
-  },
-  {
-    icon: Palette,
-    title: "Design & médias",
-    description: "Logos, présentations, animations, voix off et contenu vidéo",
-  },
-  {
-    icon: Sparkles,
-    title: "Marketing digital",
-    description: "Stratégies digitales, gestion de réseaux sociaux et création de contenu",
-  },
-];
-
+const expertiseAreas = [{
+  icon: Shield,
+  title: "Cybersécurité",
+  description: "Audit, tests de pénétration, réseaux avancés, techniques d'évasion et pivoting"
+}, {
+  icon: Code,
+  title: "Développement Python",
+  description: "Création de bots, outils d'analyse, API et interfaces graphiques"
+}, {
+  icon: Globe,
+  title: "Création web",
+  description: "Sites vitrine, SaaS, hébergement, SSL, Supabase et Firebase Studio"
+}, {
+  icon: Bot,
+  title: "Automatisation",
+  description: "Bot Telegram, gestion de CV et offres d'emploi automatisées"
+}, {
+  icon: Palette,
+  title: "Design & médias",
+  description: "Logos, présentations, animations, voix off et contenu vidéo"
+}, {
+  icon: Sparkles,
+  title: "Marketing digital",
+  description: "Stratégies digitales, gestion de réseaux sociaux et création de contenu"
+}];
 const About = () => {
-  return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
+  return <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
@@ -51,44 +41,12 @@ const About = () => {
           {/* Bio section */}
           <Card className="p-8 gradient-card border-border animate-scale-in">
             <h3 className="text-2xl font-semibold mb-4 text-primary">Mon parcours</h3>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Dynamique, motivé, engagé et polyvalent, je mets à profit mes compétences techniques 
-              pour assurer le bon fonctionnement des systèmes informatiques. Mon expérience me permet 
-              de diagnostiquer et résoudre rapidement les problèmes, d'optimiser les performances des 
-              équipements, et d'apporter des solutions innovantes pour améliorer l'efficacité.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-6">
+            
+            <p className="text-muted-foreground leading-relaxed">
               Actuellement étudiant en cybersécurité à <span className="text-primary font-semibold">NYS Africa</span>, 
               je combine formation technique et expérience pratique en tant que technicien informatique chez 
               <span className="text-primary font-semibold"> Atlantique Services Dépannage</span>.
             </p>
-            
-            <div className="space-y-4">
-              <h4 className="text-lg font-semibold text-foreground">Formation</h4>
-              <div className="space-y-3">
-                <div className="flex items-start gap-3">
-                  <span className="text-primary mt-1">🎓</span>
-                  <div>
-                    <p className="font-semibold text-foreground">NYS Africa</p>
-                    <p className="text-sm text-muted-foreground">Certificat en sécurité informatique</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-primary mt-1">🎓</span>
-                  <div>
-                    <p className="font-semibold text-foreground">CELIA Treichville</p>
-                    <p className="text-sm text-muted-foreground">3e Année Brevet de technicien en électronique et informatique appliquée</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-primary mt-1">🎓</span>
-                  <div>
-                    <p className="font-semibold text-foreground">Lycée moderne BAD d'Ayamé</p>
-                    <p className="text-sm text-muted-foreground">BEPC</p>
-                  </div>
-                </div>
-              </div>
-            </div>
           </Card>
 
           {/* Expertise grid */}
@@ -96,21 +54,17 @@ const About = () => {
             <h3 className="text-2xl font-semibold mb-8 text-center">Domaines d'expertise</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {expertiseAreas.map((area, index) => {
-                const Icon = area.icon;
-                return (
-                  <Card 
-                    key={index}
-                    className="p-6 gradient-card border-border hover:border-primary/50 transition-all duration-300 hover:glow-blue animate-fade-in group"
-                    style={{ animationDelay: `${index * 0.1}s` }}
-                  >
+              const Icon = area.icon;
+              return <Card key={index} className="p-6 gradient-card border-border hover:border-primary/50 transition-all duration-300 hover:glow-blue animate-fade-in group" style={{
+                animationDelay: `${index * 0.1}s`
+              }}>
                     <div className="mb-4 p-3 bg-primary/10 rounded-lg w-fit group-hover:bg-primary/20 transition-colors">
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
                     <h4 className="text-lg font-semibold mb-2">{area.title}</h4>
                     <p className="text-sm text-muted-foreground">{area.description}</p>
-                  </Card>
-                );
-              })}
+                  </Card>;
+            })}
             </div>
           </div>
 
@@ -142,8 +96,6 @@ const About = () => {
           </Card>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default About;
