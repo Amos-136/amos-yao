@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Quote, Star } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/translations";
 
 const testimonials = [
   {
@@ -29,15 +31,16 @@ const testimonials = [
 ];
 
 const Testimonials = () => {
+  const { language } = useLanguage();
   return (
     <section id="testimonials" className="py-20 px-4 sm:px-6 lg:px-8 gradient-hero">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Témoignages <span className="text-gradient">professionnels</span>
+            {getTranslation(language, 'testimonials.title')} <span className="text-gradient">{getTranslation(language, 'testimonials.subtitle')}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Ce que disent mes clients et collaborateurs sur mon travail.
+            {getTranslation(language, 'testimonials.description')}
           </p>
         </div>
 
@@ -72,7 +75,7 @@ const Testimonials = () => {
 
         <div className="mt-12 text-center animate-fade-in">
           <p className="text-muted-foreground mb-4">
-            Vous avez travaillé avec moi ? Partagez votre expérience !
+            {getTranslation(language, 'testimonials.cta')}
           </p>
           <a
             href="https://www.linkedin.com/in/kouassi-yao-456121247"
@@ -80,7 +83,7 @@ const Testimonials = () => {
             rel="noopener noreferrer"
             className="text-primary hover:text-primary/80 font-medium underline-offset-4 hover:underline"
           >
-            Laisser un témoignage sur LinkedIn
+            {getTranslation(language, 'testimonials.linkedin')}
           </a>
         </div>
       </div>

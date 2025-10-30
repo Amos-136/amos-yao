@@ -1,6 +1,8 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ExternalLink, Youtube } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/translations";
 
 const projects = [
   {
@@ -48,15 +50,16 @@ const projects = [
 ];
 
 const Projects = () => {
+  const { language } = useLanguage();
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 gradient-hero">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Mes <span className="text-gradient">projets</span>
+            {getTranslation(language, 'projects.title')} <span className="text-gradient">{getTranslation(language, 'projects.subtitle')}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Une sélection de projets qui illustrent mon expertise technique et ma créativité.
+            {getTranslation(language, 'projects.description')}
           </p>
         </div>
 
@@ -77,7 +80,7 @@ const Projects = () => {
                   <div className="relative aspect-video rounded-lg overflow-hidden mb-4 bg-secondary/50">
                     <iframe
                       src={`https://www.youtube.com/embed/${project.youtubeId}`}
-                      title={`${project.title} - Démonstration vidéo`}
+                      title={`${project.title} - ${getTranslation(language, 'projects.demo')}`}
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                       allowFullScreen
                       className="absolute inset-0 w-full h-full"

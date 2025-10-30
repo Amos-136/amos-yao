@@ -1,5 +1,7 @@
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/translations";
 
 const skillCategories = [
   {
@@ -77,15 +79,16 @@ const languages = [
 ];
 
 const Skills = () => {
+  const { language } = useLanguage();
   return (
     <section id="skills" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Compétences <span className="text-gradient">&amp; Expertise</span>
+            {getTranslation(language, 'skills.title')} <span className="text-gradient">{getTranslation(language, 'skills.subtitle')}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Un ensemble de compétences techniques et créatives acquises au fil de mes expériences.
+            {getTranslation(language, 'skills.description')}
           </p>
         </div>
 
@@ -97,7 +100,7 @@ const Skills = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <h3 className="text-lg font-semibold mb-4 text-primary">
-                {category.category}
+                {getTranslation(language, `skills.category.${category.category.toLowerCase().replace(' & ', '').replace('systèmes & réseaux', 'systems').replace('cloud & databases', 'cloud').replace('design & création', 'design').replace('marketing & communication', 'marketing').replace('développement', 'development').replace('cybersécurité', 'cybersecurity')}`)}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {category.skills.map((skill, skillIndex) => (
@@ -116,13 +119,13 @@ const Skills = () => {
 
         {/* Languages section */}
         <Card className="p-8 gradient-card border-border animate-fade-in">
-          <h3 className="text-2xl font-semibold mb-6 text-center text-primary">Langues</h3>
+          <h3 className="text-2xl font-semibold mb-6 text-center text-primary">{getTranslation(language, 'skills.languages.title')}</h3>
           <div className="flex justify-center gap-8">
             {languages.map((lang, index) => (
               <div key={index} className="text-center">
-                <p className="font-semibold text-lg mb-1">{lang.name}</p>
+                <p className="font-semibold text-lg mb-1">{getTranslation(language, `skills.languages.${lang.name.toLowerCase()}`)}</p>
                 <Badge variant="outline" className="border-primary/50 text-primary">
-                  {lang.level}
+                  {getTranslation(language, `skills.languages.level.${lang.level.toLowerCase()}`)}
                 </Badge>
               </div>
             ))}

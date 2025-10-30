@@ -10,23 +10,25 @@ import * as z from "zod";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/translations";
 
 const contactInfo = [
   {
     icon: Mail,
-    label: "Email",
+    label: "email",
     value: "kouassiamos111@gmail.com",
     href: "mailto:kouassiamos111@gmail.com",
   },
   {
     icon: Phone,
-    label: "Téléphone",
+    label: "phone",
     value: "0150898203 / 0584461293",
     href: "tel:0150898203",
   },
   {
     icon: MapPin,
-    label: "Localisation",
+    label: "location",
     value: "Abidjan, Côte d'Ivoire 🇨🇮",
     href: "#",
   },
@@ -60,18 +62,19 @@ const socialLinks = [
   },
 ];
 
-const contactSchema = z.object({
-  name: z.string().trim().min(2, "Le nom doit contenir au moins 2 caractères").max(100, "Le nom ne peut pas dépasser 100 caractères"),
-  email: z.string().trim().email("Email invalide").max(255, "L'email ne peut pas dépasser 255 caractères"),
-  phone: z.string().trim().optional(),
-  message: z.string().trim().min(10, "Le message doit contenir au moins 10 caractères").max(1000, "Le message ne peut pas dépasser 1000 caractères"),
-});
-
-type ContactFormData = z.infer<typeof contactSchema>;
-
 const Contact = () => {
+  const { language } = useLanguage();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  
+  const contactSchema = z.object({
+    name: z.string().trim().min(2, getTranslation(language, 'contact.form.error.name.min')).max(100, getTranslation(language, 'contact.form.error.name.max')),
+    email: z.string().trim().email(getTranslation(language, 'contact.form.error.email.invalid')).max(255, getTranslation(language, 'contact.form.error.email.max')),
+    phone: z.string().trim().optional(),
+    message: z.string().trim().min(10, getTranslation(language, 'contact.form.error.message.min')).max(1000, getTranslation(language, 'contact.form.error.message.max')),
+  });
+  
+  type ContactFormData = z.infer<typeof contactSchema>;
 
   const {
     register,
@@ -99,15 +102,15 @@ const Contact = () => {
       if (error) throw error;
 
       toast({
-        title: "Message envoyé !",
-        description: "Merci pour votre message. Je vous répondrai dans les plus brefs délais.",
+        title: getTranslation(language, 'contact.form.success.title'),
+        description: getTranslation(language, 'contact.form.success.desc'),
       });
 
       reset();
     } catch (error) {
       toast({
-        title: "Erreur",
-        description: "Une erreur est survenue lors de l'envoi du message. Veuillez réessayer.",
+        title: getTranslation(language, 'contact.form.error.title'),
+        description: getTranslation(language, 'contact.form.error.desc'),
         variant: "destructive",
       });
     } finally {
@@ -120,14 +123,14 @@ const Contact = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Restons <span className="text-gradient">connectés</span>
+            {getTranslation(language, 'contact.title')} <span className="text-gradient">{getTranslation(language, 'contact.subtitle')}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Entreprises et recruteurs : je suis disponible pour des opportunités professionnelles en cybersécurité et développement web.
+            {getTranslation(language, 'contact.description')}
           </p>
           <div className="mt-4 inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium">
             <span className="animate-pulse">🟢</span>
-            Disponible pour opportunités professionnelles
+            {getTranslation(language, 'contact.available')}
           </div>
         </div>
 
@@ -149,7 +152,7 @@ const Contact = () => {
                       <Icon className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="text-sm text-muted-foreground mb-1">{contact.label}</p>
+                      <p className="text-sm text-muted-foreground mb-1">{getTranslation(language, `contact.info.${contact.label.toLowerCase()}`)}</p>
                       <p className="font-semibold">{contact.value}</p>
                     </div>
                   </a>
@@ -160,14 +163,14 @@ const Contact = () => {
 
           {/* Contact Form */}
           <Card className="p-8 gradient-card border-border animate-fade-in-right">
-            <h3 className="text-2xl font-semibold mb-6 text-primary">Envoyez-moi un message</h3>
+            <h3 className="text-2xl font-semibold mb-6 text-primary">{getTranslation(language, 'contact.form.title')}</h3>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div>
-                <Label htmlFor="name">Nom complet *</Label>
+                <Label htmlFor="name">{getTranslation(language, 'contact.form.name')} *</Label>
                 <Input
                   id="name"
                   {...register("name")}
-                  placeholder="Votre nom"
+                  placeholder={getTranslation(language, 'contact.form.name.placeholder')}
                   className="mt-1"
                 />
                 {errors.name && (
@@ -176,12 +179,12 @@ const Contact = () => {
               </div>
 
               <div>
-                <Label htmlFor="email">Email *</Label>
+                <Label htmlFor="email">{getTranslation(language, 'contact.form.email')} *</Label>
                 <Input
                   id="email"
                   type="email"
                   {...register("email")}
-                  placeholder="votre.email@exemple.com"
+                  placeholder={getTranslation(language, 'contact.form.email.placeholder')}
                   className="mt-1"
                 />
                 {errors.email && (
@@ -190,22 +193,22 @@ const Contact = () => {
               </div>
 
               <div>
-                <Label htmlFor="phone">Téléphone (optionnel)</Label>
+                <Label htmlFor="phone">{getTranslation(language, 'contact.form.phone')}</Label>
                 <Input
                   id="phone"
                   type="tel"
                   {...register("phone")}
-                  placeholder="+225 XX XX XX XX XX"
+                  placeholder={getTranslation(language, 'contact.form.phone.placeholder')}
                   className="mt-1"
                 />
               </div>
 
               <div>
-                <Label htmlFor="message">Message *</Label>
+                <Label htmlFor="message">{getTranslation(language, 'contact.form.message')} *</Label>
                 <Textarea
                   id="message"
                   {...register("message")}
-                  placeholder="Décrivez votre projet ou votre demande..."
+                  placeholder={getTranslation(language, 'contact.form.message.placeholder')}
                   className="mt-1 min-h-[120px]"
                 />
                 {errors.message && (
@@ -219,18 +222,18 @@ const Contact = () => {
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
-                  <>Envoi en cours...</>
+                  <>{getTranslation(language, 'contact.form.sending')}</>
                 ) : (
                   <>
                     <Send className="mr-2 h-4 w-4" />
-                    Envoyer le message
+                    {getTranslation(language, 'contact.form.send')}
                   </>
                 )}
               </Button>
             </form>
 
             <div className="mt-6 pt-6 border-t border-border">
-              <h4 className="text-sm font-semibold mb-3">Ou contactez-moi directement :</h4>
+              <h4 className="text-sm font-semibold mb-3">{getTranslation(language, 'contact.social.title')}</h4>
               <div className="grid grid-cols-2 gap-3">
                 {socialLinks.slice(0, 4).map((social, index) => {
                   const Icon = social.icon;
@@ -260,8 +263,9 @@ const Contact = () => {
             onClick={() => {
               const form = document.querySelector('form');
               if (form) {
-                form.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                // Focus on the first input after scrolling
+                requestAnimationFrame(() => {
+                  form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                });
                 setTimeout(() => {
                   const firstInput = form.querySelector('input') as HTMLInputElement;
                   if (firstInput) firstInput.focus();
@@ -270,7 +274,7 @@ const Contact = () => {
             }}
           >
             <Mail className="mr-2 h-5 w-5" />
-            Me contacter
+            {getTranslation(language, 'contact.cta.contact')}
           </Button>
           <Button 
             size="lg"
@@ -279,7 +283,7 @@ const Contact = () => {
             onClick={() => window.open('https://wa.me/2250150898203', '_blank')}
           >
             <MessageCircle className="mr-2 h-5 w-5" />
-            WhatsApp
+            {getTranslation(language, 'contact.cta.whatsapp')}
           </Button>
         </div>
       </div>
