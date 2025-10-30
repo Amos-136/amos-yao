@@ -15,6 +15,10 @@ const Hero = () => {
                 src={profilePhoto}
                 alt="Yao Kouassi Amos - Étudiant en cybersécurité et développeur web spécialisé en Python, React et sécurité informatique basé à Abidjan, Côte d'Ivoire"
                 className="relative rounded-lg w-64 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[32rem] object-cover border-4 border-primary/30 glow-blue-strong animate-float"
+                fetchPriority="high"
+                loading="eager"
+                width="384"
+                height="512"
               />
             </div>
           </div>
