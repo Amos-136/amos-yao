@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Facebook, Instagram, Mail, Download } from "lucide-react";
-import profilePhoto from "@/assets/profile-photo.jpg";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { getTranslation } from "@/translations";
+import profilePhoto from "@/assets/profile-photo.jpg";
 
 const Hero = () => {
   const { language } = useLanguage();
