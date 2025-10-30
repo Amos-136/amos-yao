@@ -6,6 +6,8 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
+import FloatingChat from "@/components/FloatingChat";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const Index = () => {
   return (
@@ -32,6 +34,10 @@ const Index = () => {
           </p>
         </div>
       </footer>
+
+      {/* Floating components */}
+      <FloatingWhatsApp />
+      <FloatingChat />
     </div>
   );
 };
