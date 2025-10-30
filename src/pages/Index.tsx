@@ -8,8 +8,12 @@ import Testimonials from "@/components/Testimonials";
 import Contact from "@/components/Contact";
 import FloatingChat from "@/components/FloatingChat";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/translations";
 
 const Index = () => {
+  const { language } = useLanguage();
+  
   return (
     <div className="min-h-screen">
       <Navigation />
@@ -27,10 +31,10 @@ const Index = () => {
       <footer className="py-8 px-4 bg-background border-t border-border">
         <div className="container mx-auto max-w-6xl text-center">
           <p className="text-sm text-muted-foreground">
-            © 2025 Yao Kouassi Amos. Tous droits réservés.
+            © 2025 Yao Kouassi Amos. {getTranslation(language, 'footer.rights')}
           </p>
           <p className="text-xs text-muted-foreground mt-2">
-            Conçu avec passion pour l'innovation et la créativité.
+            {getTranslation(language, 'footer.tagline')}
           </p>
         </div>
       </footer>

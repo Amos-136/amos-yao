@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { Github, Linkedin, Facebook, Instagram, Mail, Download } from "lucide-react";
 import profilePhoto from "@/assets/profile-photo.jpg";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/translations";
 
 const Hero = () => {
+  const { language } = useLanguage();
+  
   return (
     <section className="min-h-screen gradient-hero flex items-center justify-center px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto max-w-6xl">
@@ -27,7 +31,7 @@ const Hero = () => {
           <div className="space-y-6 animate-fade-in-right">
             <div className="space-y-2">
               <p className="text-primary text-sm font-semibold tracking-wider uppercase">
-                Étudiant en Cybersécurité 🇨🇮
+                {getTranslation(language, 'hero.subtitle')}
               </p>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold">
                 Yao Kouassi <span className="text-gradient">Amos</span>
@@ -35,8 +39,7 @@ const Hero = () => {
             </div>
             
             <p className="text-lg text-muted-foreground leading-relaxed">
-              Technicien en informatique rigoureux et polyvalent, passionné par la cybersécurité et le développement. 
-              Je conçois des solutions fiables, sécurisées et innovantes pour répondre aux besoins techniques des entreprises.
+              {getTranslation(language, 'hero.description')}
             </p>
             
             <div className="flex flex-wrap items-center gap-4 pt-4">
@@ -46,7 +49,7 @@ const Hero = () => {
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 <Mail className="mr-2 h-4 w-4" />
-                Me contacter
+                {getTranslation(language, 'hero.contact')}
               </Button>
               <Button 
                 size="lg" 
@@ -54,7 +57,7 @@ const Hero = () => {
                 className="border-primary/50 text-foreground hover:bg-primary/10"
                 onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
               >
-                Voir mes projets
+                {getTranslation(language, 'hero.projects')}
               </Button>
               <Button 
                 size="lg" 
@@ -63,7 +66,7 @@ const Hero = () => {
                 onClick={() => window.open('#', '_blank')}
               >
                 <Download className="mr-2 h-4 w-4" />
-                Télécharger mon CV
+                {getTranslation(language, 'hero.downloadCV')}
               </Button>
             </div>
 

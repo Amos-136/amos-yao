@@ -1,16 +1,20 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/translations";
+import LanguageSelector from "@/components/LanguageSelector";
 
 const navItems = [
-  { label: "Accueil", href: "#hero" },
-  { label: "À propos", href: "#about" },
-  { label: "Projets", href: "#projects" },
-  { label: "Compétences", href: "#skills" },
-  { label: "Contact", href: "#contact" },
+  { labelKey: "nav.home", href: "#hero" },
+  { labelKey: "nav.about", href: "#about" },
+  { labelKey: "nav.projects", href: "#projects" },
+  { labelKey: "nav.skills", href: "#skills" },
+  { labelKey: "nav.contact", href: "#contact" },
 ];
 
 const Navigation = () => {
+  const { language } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -68,7 +72,7 @@ const Navigation = () => {
             <div className="hidden md:flex items-center gap-8">
               {navItems.map((item) => (
                 <a
-                  key={item.label}
+                  key={item.labelKey}
                   href={item.href}
                   onClick={(e) => {
                     e.preventDefault();
@@ -76,9 +80,10 @@ const Navigation = () => {
                   }}
                   className="text-sm font-medium hover:text-primary transition-colors"
                 >
-                  {item.label}
+                  {getTranslation(language, item.labelKey)}
                 </a>
               ))}
+              <LanguageSelector />
             </div>
 
             {/* Mobile menu button */}
@@ -103,7 +108,7 @@ const Navigation = () => {
             <div className="container mx-auto px-4 py-4 space-y-2">
               {navItems.map((item) => (
                 <a
-                  key={item.label}
+                  key={item.labelKey}
                   href={item.href}
                   onClick={(e) => {
                     e.preventDefault();
@@ -111,9 +116,12 @@ const Navigation = () => {
                   }}
                   className="block py-2 text-sm font-medium hover:text-primary transition-colors"
                 >
-                  {item.label}
+                  {getTranslation(language, item.labelKey)}
                 </a>
               ))}
+              <div className="pt-2">
+                <LanguageSelector />
+              </div>
             </div>
           </div>
         )}

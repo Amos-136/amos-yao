@@ -1,53 +1,58 @@
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Wrench, Code, Shield, CheckCircle } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { getTranslation } from "@/translations";
 
-const services = [
+const getServices = (language: 'fr' | 'en') => [
   {
     icon: Wrench,
-    title: "Maintenance informatique",
-    description: "Diagnostic et réparation de matériel, optimisation des performances, installation et configuration de logiciels.",
+    title: getTranslation(language, 'services.maintenance.title'),
+    description: getTranslation(language, 'services.maintenance.description'),
     features: [
-      "Réparation matériel et logiciel",
-      "Optimisation des systèmes",
-      "Installation de logiciels",
-      "Support technique",
+      getTranslation(language, 'services.maintenance.feature1'),
+      getTranslation(language, 'services.maintenance.feature2'),
+      getTranslation(language, 'services.maintenance.feature3'),
+      getTranslation(language, 'services.maintenance.feature4'),
     ],
   },
   {
     icon: Code,
-    title: "Développement web",
-    description: "Création de sites web modernes, applications web sur mesure, intégration API et hébergement sécurisé.",
+    title: getTranslation(language, 'services.web.title'),
+    description: getTranslation(language, 'services.web.description'),
     features: [
-      "Sites vitrine et SaaS",
-      "Applications web React",
-      "Intégration Firebase/Supabase",
-      "Hébergement et SSL",
+      getTranslation(language, 'services.web.feature1'),
+      getTranslation(language, 'services.web.feature2'),
+      getTranslation(language, 'services.web.feature3'),
+      getTranslation(language, 'services.web.feature4'),
     ],
   },
   {
     icon: Shield,
-    title: "Cybersécurité",
-    description: "Audit de sécurité, tests de pénétration, sécurisation des réseaux et formation aux bonnes pratiques.",
+    title: getTranslation(language, 'services.security.title'),
+    description: getTranslation(language, 'services.security.description'),
     features: [
-      "Audit et tests de pénétration",
-      "Sécurisation des réseaux",
-      "Configuration firewall",
-      "Formation sécurité",
+      getTranslation(language, 'services.security.feature1'),
+      getTranslation(language, 'services.security.feature2'),
+      getTranslation(language, 'services.security.feature3'),
+      getTranslation(language, 'services.security.feature4'),
     ],
   },
 ];
 
 const Services = () => {
+  const { language } = useLanguage();
+  const services = getServices(language);
+  
   return (
     <section id="services" className="py-20 px-4 sm:px-6 lg:px-8 bg-background">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-            Mes <span className="text-gradient">services</span>
+            {getTranslation(language, 'services.title')} <span className="text-gradient">{getTranslation(language, 'services.subtitle')}</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Des solutions techniques professionnelles adaptées à vos besoins.
+            {getTranslation(language, 'services.description')}
           </p>
         </div>
 
@@ -85,7 +90,7 @@ const Services = () => {
                   className="w-full bg-primary hover:bg-primary/90"
                   onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
                 >
-                  Demander un devis
+                  {getTranslation(language, 'services.quote')}
                 </Button>
               </Card>
             );
