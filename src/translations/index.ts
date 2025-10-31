@@ -133,6 +133,21 @@ export const translations = {
     'contact.cta.contact': 'Me contacter',
     'contact.cta.whatsapp': 'WhatsApp',
     
+    // Collaborations
+    'collaborations.title': 'Freelance &',
+    'collaborations.subtitle': 'Collaborations professionnelles',
+    'collaborations.description': "En parallèle de mes projets personnels, je travaille en freelance comme technicien de maintenance informatique et support technique pour plusieurs entreprises basées à Abidjan. J'assure la maintenance des systèmes, le suivi du matériel, la configuration réseau et le dépannage informatique pour ces structures.",
+    'collaborations.wilson.sector': 'Logistique et transport',
+    'collaborations.wilson.role': 'Maintenance informatique, support technique et supervision réseau',
+    'collaborations.sneppci.sector': 'Éducation, syndicats et développement communautaire',
+    'collaborations.sneppci.role': 'Maintenance et support technique des installations informatiques',
+    'collaborations.skin.sector': 'Beauté, soins de la peau et bien-être',
+    'collaborations.skin.role': 'Maintenance informatique et gestion des outils digitaux internes',
+    'collaborations.gfprint.sector': 'Imprimerie et communication visuelle',
+    'collaborations.gfprint.role': 'Maintenance et configuration des postes de production / imprimantes',
+    'collaborations.role.label': 'Rôle',
+    'collaborations.cta': 'Voir toutes mes collaborations',
+    
     // Footer
     'footer.rights': 'Tous droits réservés.',
     'footer.tagline': "Conçu avec passion pour l'innovation et la créativité.",
@@ -270,6 +285,21 @@ export const translations = {
     'contact.social.title': 'Or contact me directly:',
     'contact.cta.contact': 'Contact me',
     'contact.cta.whatsapp': 'WhatsApp',
+    
+    // Collaborations
+    'collaborations.title': 'Freelance &',
+    'collaborations.subtitle': 'Professional Collaborations',
+    'collaborations.description': "Alongside my personal projects, I work as a freelance IT maintenance technician and technical support for several companies based in Abidjan. I provide system maintenance, equipment monitoring, network configuration and IT troubleshooting for these organizations.",
+    'collaborations.wilson.sector': 'Logistics and transport',
+    'collaborations.wilson.role': 'IT maintenance, technical support and network supervision',
+    'collaborations.sneppci.sector': 'Education, unions and community development',
+    'collaborations.sneppci.role': 'Maintenance and technical support of IT installations',
+    'collaborations.skin.sector': 'Beauty, skincare and wellness',
+    'collaborations.skin.role': 'IT maintenance and internal digital tools management',
+    'collaborations.gfprint.sector': 'Printing and visual communication',
+    'collaborations.gfprint.role': 'Maintenance and configuration of production stations / printers',
+    'collaborations.role.label': 'Role',
+    'collaborations.cta': 'View all my collaborations',
     
     // Footer
     'footer.rights': 'All rights reserved.',
