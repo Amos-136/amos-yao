@@ -63,10 +63,12 @@ const Hero = () => {
                 size="lg" 
                 variant="secondary"
                 className="bg-secondary hover:bg-secondary/80"
-                onClick={() => window.open('https://github.com/Amos-136', '_blank')}
+                asChild
               >
-                <Download className="mr-2 h-4 w-4" />
-                {getTranslation(language, 'hero.downloadCV')}
+                <a href="/mon_CV.pdf" download="CV_Yao_Kouassi_Amos.pdf">
+                  <Download className="mr-2 h-4 w-4" />
+                  {getTranslation(language, 'hero.downloadCV')}
+                </a>
               </Button>
             </div>
 
